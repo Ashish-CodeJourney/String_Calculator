@@ -6,7 +6,14 @@ public class StringCalculator {
         if (numbers.isEmpty()) {
             return 0;
         }
-        return Integer.parseInt(numbers); // implementation to pass `testAdd_SingleNumber_ReturnsNumber` test
-    }
 
+        // implementation to pass `testAdd_SingleNumber_ReturnsNumber` test
+        String[] nums = numbers.split(",");
+        int sum = 0;
+        for (String num : nums) {
+            sum += Integer.parseInt(num);
+        }
+
+        return sum;
+    }
 }
