@@ -3,12 +3,28 @@
  */
 package stringcalculator;
 
+import java.util.Scanner;
+
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        Scanner scanner = new Scanner(System.in);
+
+        // Instantiate StringCalculator
+        StringCalculator calculator = new StringCalculator();
+
+        // Prompt user for input
+        System.out.println("Enter numbers to add (separated by commas or new lines):");
+        String input = scanner.nextLine();
+
+        // Calculate and display the result
+        try {
+            int result = calculator.add(input);
+            System.out.println("Sum: " + result);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
+        scanner.close();
     }
 }
