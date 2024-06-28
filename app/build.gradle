@@ -33,3 +33,11 @@ tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }
+
+task runInteractive(type: JavaExec) {
+    group = 'Application'
+    description = 'Runs the application with interactive input.'
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'stringcalculator.App'
+    standardInput = System.in
+}
