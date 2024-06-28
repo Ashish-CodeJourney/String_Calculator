@@ -19,4 +19,11 @@ class StringCalculatorTest {
         int result = calculator.add("1");
         assertEquals(1, result);
     }
+
+    @Test
+    void testAdd_TwoNumbers_ReturnsSum() {
+        StringCalculator calculator = new StringCalculator();
+        int result = calculator.add("1,5");
+        assertEquals(6, result);
+    }
 }
