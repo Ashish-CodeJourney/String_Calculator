@@ -34,4 +34,11 @@ class StringCalculatorTest {
         assertEquals(6, result);
     }
 
+    @Test
+    void testAdd_CustomDelimiter_ReturnsSum() {
+        StringCalculator calculator = new StringCalculator();
+        int result = calculator.add("//;\n1;2");
+        assertEquals(3, result);
+    }
+
 }
