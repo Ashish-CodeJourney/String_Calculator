@@ -26,4 +26,12 @@ class StringCalculatorTest {
         int result = calculator.add("1,5");
         assertEquals(6, result);
     }
+
+    @Test
+    void testAdd_NewLinesBetweenNumbers_ReturnsSum() {
+        StringCalculator calculator = new StringCalculator();
+        int result = calculator.add("1\n2,3");
+        assertEquals(6, result);
+    }
+
 }
