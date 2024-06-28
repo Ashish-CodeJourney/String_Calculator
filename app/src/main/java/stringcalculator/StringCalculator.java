@@ -16,8 +16,12 @@ public class StringCalculator {
         // implementation to pass `testAdd_CustomDelimiter_ReturnsSum` test
         if (numbers.startsWith("//")) {
             int delimiterIndex = numbers.indexOf("\n");
-            delimiter = numbers.substring(2, delimiterIndex);
-            numbersWithoutDelimiter = numbers.substring(delimiterIndex + 1);
+            if (delimiterIndex != -1) {
+                delimiter = numbers.substring(2, delimiterIndex);
+                numbersWithoutDelimiter = numbers.substring(delimiterIndex + 1);
+            } else {
+                throw new IllegalArgumentException("Invalid input format for custom delimiter");
+            }
         }
 
         // implementation to pass `testAdd_SingleNumber_ReturnsNumber` test
