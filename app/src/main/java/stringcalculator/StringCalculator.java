@@ -3,6 +3,10 @@ package stringcalculator;
 public class StringCalculator {
 
     public int add(String numbers) {
-        return 0; // Minimal implementation to pass `Add_EmptyString_ReturnsZero` test
+        if (numbers.isEmpty()) {
+            return 0;
+        }
+        return Integer.parseInt(numbers); // implementation to pass `testAdd_SingleNumber_ReturnsNumber` test
     }
+
 }
