@@ -8,7 +8,8 @@ public class StringCalculator {
         }
 
         // implementation to pass `testAdd_SingleNumber_ReturnsNumber` test
-        String[] nums = numbers.split(",");
+        // Split numbers by comma or new line and calculate sum for `testAdd_NewLinesBetweenNumbers_ReturnsSum` test
+        String[] nums = numbers.split("[,\n]");
         int sum = 0;
         for (String num : nums) {
             sum += Integer.parseInt(num);
