@@ -17,6 +17,9 @@ public class App {
         System.out.println("Enter numbers to add (separated by commas or new lines):");
         String input = scanner.nextLine();
 
+        // Replacing escaped newline sequence with an actual newline character
+        input = input.replace("\\n", "\n");
+
         // Calculate and display the result
         try {
             int result = calculator.add(input);
