@@ -52,4 +52,11 @@ class StringCalculatorTest {
             assertEquals("Negative numbers not allowed: [-2]", e.getMessage());
         }
     }
+
+    @Test
+    void testAdd_IgnoreNumbersGreaterThan1000_ReturnsSum() {
+        int result = calculator.add("2,1001");
+        assertEquals(2, result);
+    }
+
 }
