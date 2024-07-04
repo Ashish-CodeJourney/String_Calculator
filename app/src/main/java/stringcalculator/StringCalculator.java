@@ -37,7 +37,9 @@ public class StringCalculator {
             if (n < 0) {
                 negatives.add(n);
             }
-            sum += n; // Add to sum regardless of negativity
+            if (n <= 1000) { // Check if number is less than or equal to 1000
+                sum += n;
+            }
         }
 
         // Throwing exception for negative numbers
