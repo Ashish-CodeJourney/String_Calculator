@@ -5,7 +5,10 @@ import java.util.List;
 
 public class StringCalculator {
 
+    private int callCount = 0;
+
     public int add(String numbers) {
+        callCount++;
         if (numbers.isEmpty()) {
             return 0;
         }
@@ -77,4 +80,9 @@ public class StringCalculator {
 
         return sum;
     }
+
+    // Method to return the number of times add() has been called
+    public int getCalledCount() {
+        return callCount;
+}
 }
