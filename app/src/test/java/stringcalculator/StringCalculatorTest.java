@@ -6,10 +6,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class StringCalculatorTest {
 
-    private static StringCalculator calculator;
+    private StringCalculator calculator;
 
-    @BeforeAll
-    static void setup() {
+    @BeforeEach
+    void setup() {
         calculator = new StringCalculator();
     }
 
@@ -69,6 +69,15 @@ class StringCalculatorTest {
     void testAdd_DelimiterOfAnyLength_ReturnsSum() {
         int result = calculator.add("//[***]\n1***2***3");
         assertEquals(6, result);
+    }
+
+    @Test
+    void testAdd_GetCalledCount() {
+        calculator.add("1,2,3");
+        calculator.add("4,5");
+        calculator.add("6");
+
+        assertEquals(3, calculator.getCalledCount());
     }
 
 }
