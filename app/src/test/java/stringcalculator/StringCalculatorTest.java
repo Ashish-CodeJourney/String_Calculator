@@ -59,4 +59,9 @@ class StringCalculatorTest {
         assertEquals(2, result);
     }
 
+    @Test
+    void testAdd_StarAsDelimiter_ReturnsMul() {
+        int result = calculator.add("//*\n3*2*5");
+        assertEquals(30, result);
+    }
 }
