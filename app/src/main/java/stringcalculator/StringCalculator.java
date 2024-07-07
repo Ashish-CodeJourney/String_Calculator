@@ -21,8 +21,16 @@ public class StringCalculator {
                 delimiter = numbers.substring(2, delimiterIndex);
                 numbersWithoutDelimiter = numbers.substring(delimiterIndex + 1);
 
-                // setting value of ismultiplication based on * delimiter
-                if(delimiter.equals("*")){
+                // handling delimiters of any length
+                if (delimiter.startsWith("[") && delimiter.endsWith("]")) {
+                    delimiter = delimiter.substring(1, delimiter.length() - 1);
+                    if (delimiter.equals("*")) {
+                        isMultiplication = true;
+                        delimiter = "\\*";
+                    } else {
+                        delimiter = java.util.regex.Pattern.quote(delimiter); // quoting the delimiter for regex
+                    }
+                } else if (delimiter.equals("*")) {
                     isMultiplication = true;
                 }
                 else {
