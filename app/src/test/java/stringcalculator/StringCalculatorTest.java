@@ -64,4 +64,11 @@ class StringCalculatorTest {
         int result = calculator.add("//*\n3*2*5");
         assertEquals(30, result);
     }
+
+    @Test
+    void testAdd_DelimiterOfAnyLength_ReturnsSum() {
+        int result = calculator.add("//[***]\n1***2***3");
+        assertEquals(6, result);
+    }
+
 }
