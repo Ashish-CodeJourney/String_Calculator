@@ -33,21 +33,25 @@
 6. **Ignore numbers greater than 1000:**
    - Numbers greater than 1000 should be ignored in the sum calculation.
    - Example: `"2,1001"` should return `2`.
+  
+7. **Using `*` as delimiter return Multiplication :**
+   - When you use `*` as delimiter it should return multiplication.
+   - Example: `"//*\n3*2*5"` should return `30`.
 
-7. **Delimiters of any length:**
+8. **Delimiters of any length:**
    - Delimiters can be of any length if enclosed in square brackets.
    - Example: `"//[***]\n1***2***3"` where the delimiter is `"***"` should return `6`.
+  
+9. **Track how many times `add()` is invoked:**
+    - Implement a method `getCalledCount()` that returns the number of times `add()` method was called.
 
-8. **Support multiple delimiters:**
+10. **Support multiple delimiters:**
    - Allow multiple delimiters to be specified using square brackets.
    - Example: `"//[*][%]\n1*2%3"` should return `6`.
 
-9. **Handle multiple delimiters with length longer than one character:**
+11. **Handle multiple delimiters with length longer than one character:**
    - Delimiters can also be longer than one character.
    - Example: `"//[**][%%]\n1**2%%3"` should return `6`.
-
-10. **Track how many times `add()` is invoked:**
-    - Implement a method `getCalledCount()` that returns the number of times `add()` method was called.
 
 Remember to follow the Test-Driven Development (TDD) cycle:
 - Write a failing test.
