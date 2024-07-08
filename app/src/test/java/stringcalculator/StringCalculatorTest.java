@@ -80,4 +80,11 @@ class StringCalculatorTest {
         assertEquals(3, calculator.getCalledCount());
     }
 
+    @Test
+    void testAdd_MultipleDelimiters_ReturnsSum() {
+        int result = calculator.add("//[*][%]\n1*2%3");
+        assertEquals(6, result);
+    }
+
+
 }
