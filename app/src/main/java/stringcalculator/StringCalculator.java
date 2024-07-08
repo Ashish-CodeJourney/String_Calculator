@@ -27,23 +27,23 @@ public class StringCalculator {
                 // handling delimiters of any length
                 if (delimiter.startsWith("[") && delimiter.endsWith("]")) {
                     delimiter = delimiter.substring(1, delimiter.length() - 1);
-                    if (delimiter.equals("*")) {
-                        isMultiplication = true;
-                        delimiter = "\\*";
-                    } else {
-                        delimiter = java.util.regex.Pattern.quote(delimiter); // quoting the delimiter for regex
+                    String[] delimiters = delimiter.split("\\]\\[");
+                    StringBuilder delimiterRegex = new StringBuilder();
+                    for (String delim : delimiters) {
+                        delimiterRegex.append(java.util.regex.Pattern.quote(delim)).append("|");
                     }
+                    delimiter = delimiterRegex.toString();
+                    delimiter = delimiter.substring(0, delimiter.length() - 1); // remove last "|"
                 } else if (delimiter.equals("*")) {
                     isMultiplication = true;
-                }
-                else {
-                    delimiter = "[" + delimiter + "]";
+                    delimiter = "\\*";
+                } else {
+                    delimiter = java.util.regex.Pattern.quote(delimiter); // quoting the delimiter for regex
                 }
             } else {
                 throw new IllegalArgumentException("Invalid input format for custom delimiter");
             }
         }
-
         // implementation to pass `testAdd_SingleNumber_ReturnsNumber` test
         // Split numbers by comma or new line and calculate sum for `testAdd_NewLinesBetweenNumbers_ReturnsSum` test
         String[] nums;
